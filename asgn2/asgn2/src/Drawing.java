@@ -1,24 +1,29 @@
 
-    import java.awt.*;
+import java.awt.*;
     import java.awt.event.ActionEvent;
     import java.awt.event.ActionListener;
     import java.awt.event.MouseEvent;
     import java.awt.event.MouseMotionListener;
-    import javax.swing.*;
+import javax.swing.*;
 
     public class Drawing extends JPanel implements ActionListener,MouseMotionListener {
+        private Head head;
+        int mouse_x = 0;
+        int mouse_y = 0;
         
         public Drawing() {
             addMouseMotionListener(this);
             setBackground(Color.GRAY);
             Timer timer = new Timer(1000/30, this);
             timer.start();
+            this.head = new Head();
         }
         
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-            drawHead(g);
+            drawHead(g, this.mouse_x, this.mouse_y);
+            
         
         }
 
@@ -34,10 +39,10 @@
         // //         g.setColor(Color.WHITE);
         //     g.fillRect (400, 400, 10, 10);
         // }
-        private void drawHead(Graphics g) {
+        private void drawHead(Graphics g, int x, int y) {
+            this.head.drawHead(g, x, y);
 
-            g.setColor(new Color(232, 220 ,202));
-            g.fillOval(350, 250, 100, 100);
+    
         }
         
         
@@ -50,8 +55,10 @@
         public void mouseMoved(MouseEvent e) {
             // nhead = new Head();
 
-            System.out.println(e.getX());
-            System.out.println(e.getY());
+            this.mouse_x = (e.getX());
+            this.mouse_y = (e.getY());
+
+
             repaint();
         }
         
