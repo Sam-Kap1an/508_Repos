@@ -10,7 +10,7 @@
         
         public Drawing() {
             addMouseMotionListener(this);
-            setBackground(Color.GRAY));
+            setBackground(Color.GRAY);
             Timer timer = new Timer(1000/30, this);
             timer.start();
         }
