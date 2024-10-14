@@ -59,13 +59,16 @@ public class Head implements Runnable, MouseMotionListener {
         g.setColor(new Color(232, 220 ,202));
         g.fillOval(this.head_x-(this.width/2), this.head_y-(this.height/2), this.width, this.height);
 
-        g.setColor(new Color(0,225,255));
+        g.setColor(new Color(0, 255,255));
         g.fillOval( this.head_x - eye_distance -5,  this.head_y -15, this.eye_size +10, this.eye_size+10);
         g.fillOval( this.head_x + eye_distance -5,  this.head_y -15, this.eye_size+10, this.eye_size+10);
 
         g.setColor(Color.BLACK);
         g.fillOval(this.head_x-(int) xPos - eye_distance, this.head_y-(int) yPos-10, this.eye_size, this.eye_size);
         g.fillOval(this.head_x-(int) xPos + eye_distance, this.head_y-(int) yPos-10, this.eye_size, this.eye_size);
+
+        g.setColor(new Color(105, 105, 105)); 
+        g.fillOval(this.head_x - 30, this.head_y + 10, 60, 40); 
 
 
     }

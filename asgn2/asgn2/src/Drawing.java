@@ -39,10 +39,10 @@ import javax.swing.*;
         // //         g.setColor(Color.WHITE);
         //     g.fillRect (400, 400, 10, 10);
         // }
+
+        
         private void drawHead(Graphics g, int x, int y) {
             this.head.drawHead(g, x, y);
-
-    
         }
         
         
