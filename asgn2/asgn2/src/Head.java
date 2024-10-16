@@ -1,7 +1,10 @@
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
-public class Head implements Runnable, MouseMotionListener {
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class Head implements Runnable, MouseMotionListener, PropertyChangeListener {
 
     private int head_x;
     private int head_y;
@@ -12,6 +15,7 @@ public class Head implements Runnable, MouseMotionListener {
     private int eye_distance;
     private int width;
     private int height;
+    private boolean moves;
 
 
     public Head() {
@@ -38,19 +42,18 @@ public class Head implements Runnable, MouseMotionListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        // TODO Auto-generated method stub
-        PointerInfo pi = MouseInfo.getPointerInfo(); 
-        Point p = pi.getLocation(); 
-        this.mouse_x = (int) p.getX();
-        this.mouse_y = (int) p.getY();
-        System.out.println(this.mouse_x + ", " + this.mouse_y);
+        
     }
+
     public void drawHead(Graphics g, int x, int y) {
+        if(moves) {
+            this.mouse_x = x;
+            this.mouse_y = y;
+        }
 
-
-        double h = Math.hypot(this.head_x-x, this.head_y-y);
-        double xPos = this.head_x-x;
-        double yPos = this.head_y-y;
+        double h = Math.hypot(this.head_x-this.mouse_x, this.head_y-this.mouse_y);
+        double xPos = this.head_x-this.mouse_x;
+        double yPos = this.head_y-this.mouse_y;
         xPos /= h;
         yPos /= h;
         xPos *= this.eye_width;
@@ -73,7 +76,13 @@ public class Head implements Runnable, MouseMotionListener {
 
     }
 
-    
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        moves = (boolean)evt.getNewValue();
+        System.out.println(moves);
+
+    }
+
 
 
 }
