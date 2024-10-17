@@ -1,6 +1,7 @@
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import javax.swing.*;
 
@@ -35,6 +36,7 @@ public class Frame extends JFrame implements ActionListener{
 		Drawing d = new Drawing();
 		add(d);
         pcs.addPropertyChangeListener(d.head);
+        
     }
 
     @Override
@@ -46,5 +48,9 @@ public class Frame extends JFrame implements ActionListener{
         }else{
             pcs.firePropertyChange("moves", true, false);
         }
+    }
+
+    public void addPCL(PropertyChangeListener pcl) {
+        pcs.addPropertyChangeListener(pcl);
     }
 }

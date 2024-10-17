@@ -14,10 +14,12 @@ public class App {
 
 		MousePointer mousePointer = new MousePointer();
 		nFrame.addMouseMotionListener(mousePointer);
+        
 
 
 
 		Server server = new Server();
+        nFrame.addPCL(server);
 
 		if (server.isReady()) {
 			System.out.println("Server is ready");
