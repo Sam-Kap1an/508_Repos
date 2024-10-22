@@ -5,10 +5,12 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
     public class Drawing extends JPanel implements ActionListener{
+        //init head and local mouse storage
         public Head head;
         int mouse_x = 0;
         int mouse_y = 0;
         
+        //init drawing
         public Drawing() {
             setBackground(Color.GRAY);
             Timer timer = new Timer(1000/30, this);
@@ -27,6 +29,7 @@ import javax.swing.*;
         }
         
         private void drawHead(Graphics g, int x, int y) {
+            //call draw head in head class
             this.head.drawHead(g, x, y);
         }
         

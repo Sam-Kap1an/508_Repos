@@ -7,6 +7,7 @@ public class ClientApp {
     private static final int SERVER_PORT = 8888;
 
     public static void main(String[] args) {
+        //test socket connection
         try (Socket socket = new Socket(SERVER_IP, SERVER_PORT);
              ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream())) {
 
@@ -20,6 +21,7 @@ public class ClientApp {
                 System.out.println("Mouse x: " + mouse_x + ", Mouse y: " + mouse_y);
             }
 
+        //catch error if connection failed
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Client error: " + e.getMessage());
         }
