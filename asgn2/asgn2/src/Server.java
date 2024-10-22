@@ -15,6 +15,7 @@ public class Server implements Runnable, PropertyChangeListener {
 
 
     public Server() throws IOException {
+        //make socket for connection
         ServerSocket serverSocket = new ServerSocket(PORT);
         Socket clientSocket = serverSocket.accept();
         outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
@@ -37,9 +38,13 @@ public class Server implements Runnable, PropertyChangeListener {
 
     private void send() throws IOException {
         if (moves) {
+            //  moves is a boolean repersenting the menue state
+
+            //update mouse in cords real time
             int mouse_x = MousePointer.getMouseX();
             int mouse_y = MousePointer.getMouseY();
 
+            // send mouse cords
             outputStream.writeObject(mouse_x);
             outputStream.writeObject(mouse_y);
             outputStream.flush();
@@ -54,6 +59,7 @@ public class Server implements Runnable, PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        //handles move state boolean in client
         moves = (boolean)evt.getNewValue();
     }
 
