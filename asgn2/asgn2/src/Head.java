@@ -1,20 +1,18 @@
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class Head implements PropertyChangeListener {
 
-    private int head_x;
-    private int head_y;
+    private final int head_x;
+    private final int head_y;
+    private final int eye_width;
+    private final int eye_size;
+    private final int eye_distance;
+    private final int width;
+    private final int height;
     private int mouse_x;
     private int mouse_y;
-    private int eye_width;
-    private int eye_size;
-    private int eye_distance;
-    private int width;
-    private int height;
     private boolean moves;
 
 
