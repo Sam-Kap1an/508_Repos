@@ -11,7 +11,7 @@ public class Frame extends JFrame implements ActionListener{
     static JMenuBar menub;
     static JMenu menu;
     static JMenuItem mstart, mstop;
-    private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+    private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
 
 
 
@@ -40,7 +40,7 @@ public class Frame extends JFrame implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { //Button Clicked
         String  cmd = e.getActionCommand();
         if(cmd.equals("Start")){
             pcs.firePropertyChange("moves", false, true);
@@ -50,7 +50,7 @@ public class Frame extends JFrame implements ActionListener{
         }
     }
 
-    public void addPCL(PropertyChangeListener pcl) {
+    public void addPCL(PropertyChangeListener pcl) { //Observable
         pcs.addPropertyChangeListener(pcl);
     }
 }
