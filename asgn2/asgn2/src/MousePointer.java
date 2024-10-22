@@ -9,10 +9,10 @@ public class MousePointer implements MouseMotionListener {
 
 
     @Override
-    public void mouseDragged(MouseEvent e) {}
+    public void mouseDragged(MouseEvent e) {} //necessary for implementation
 
     @Override
-    public void mouseMoved(MouseEvent e) {
+    public void mouseMoved(MouseEvent e) { // On mouse motion
         MousePointer.mouse_x = (e.getX());
         MousePointer.mouse_y = (e.getY());
     }

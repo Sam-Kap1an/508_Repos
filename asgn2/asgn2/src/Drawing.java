@@ -13,14 +13,13 @@ import javax.swing.*;
         //init drawing
         public Drawing() {
             setBackground(Color.GRAY);
-            Timer timer = new Timer(1000/30, this);
-            timer.start();
+
             this.head = new Head();
 
         }
         
         @Override
-        public void paintComponent(Graphics g) {
+        public void paintComponent(Graphics g) { //Draw screen
             super.paintComponent(g);
             drawHead(g, this.mouse_x, this.mouse_y);
             this.mouse_x = MousePointer.getMouseX();
@@ -35,13 +34,13 @@ import javax.swing.*;
         
         
         @Override
-        public Dimension getPreferredSize() {
+        public Dimension getPreferredSize() { //set window size
             return new Dimension(800, 600);
         }
 
         
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) { //redraw
             repaint();
         }
     }
