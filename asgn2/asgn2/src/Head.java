@@ -4,7 +4,7 @@ import java.awt.event.MouseMotionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class Head implements Runnable, MouseMotionListener, PropertyChangeListener {
+public class Head implements PropertyChangeListener {
 
     private int head_x;
     private int head_y;
@@ -30,20 +30,8 @@ public class Head implements Runnable, MouseMotionListener, PropertyChangeListen
         this.eye_distance = 15;
     }
 
-    @Override
-    public void run() {
-        System.out.println("head is running!");
-    }
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
 
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        
-    }
 
     public void drawHead(Graphics g, int x, int y) {
         if(moves) {
